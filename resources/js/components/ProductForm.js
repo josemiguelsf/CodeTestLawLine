@@ -43,31 +43,10 @@ export default function ProductForm(props) {
             .trim()
     );
     let msg2 = "";
-    console.log("BBBBBBBBBBBBBBBBB");
-    console.log(urlApi);
-    console.log(
-        $("#urlApi")
-            .text()
-            .trim()
-    );
-    console.log("BBBBBBBBBBBBBBBBBB");
-
-    console.log("OUTSIDE IF");
-    console.log(props);
-    console.log(props.dat.imagen);
-    console.log("OUTSIDE IF");
+   
     //DISPLAYING IMAGE IN CASE OF EDIT
     if (props && props.dat.image) props.dat.editImage = props.dat.image;
-    //setImageEdit(props.dat.imagen);
     if (props && props.dat.editImage && !flag) {
-        console.log("INSIDE IF");
-        console.log(props);
-        console.log(
-            "/code-test-master/docs/productImages/" + props.dat.editImage
-        );
-        console.log(urlApi + "/docs/productImages/" + props.dat.editImage);
-        console.log('INSIDE IF');
-        //	console.log('INSIDE INSIDE PROPS DATA IMAGE');
         let editImage = urlApi + "/docs/productImages/" + props.dat.editImage;
         
         $(".image-preview__image1").prop(
@@ -96,24 +75,17 @@ export default function ProductForm(props) {
         const previewDefaultText = previewContainer.querySelector(
             ".image-preview__default-text"
         );
-        //console.log('NNNNNNNNNNNNNNNNNNNNNN');
-        //console.log(file);
-        //console.log('NNNNNNNNNNNNNNNNNNNNNN');
         if (file) {
             const reader = new FileReader();
 
             previewDefaultText.style.display = "none";
             previewImage.style.display = "block";
             reader.addEventListener("load", function() {
-                //console.log('INSIDE FILE');
-                //console.log(reader.result);
-                //console.log('INSIDE FILE');
                 previewImage.setAttribute("src", reader.result);
             });
             reader.readAsDataURL(file);
         }
         props.dat.image = selectedFile;
-        //atencion aquí...
         props.dat.editImage = URL.createObjectURL(event.target.files[0]);
 
         const ext = selectedFile.name.substr(
@@ -132,19 +104,8 @@ export default function ProductForm(props) {
             setShowMsg(true);
         }
     }
-
-    /*const handleOnChangeText = (e, editor) => {
-		console.log(editor.getData());
-		const data = editor.getData();
-		setEditorVal(data);
-		console.log(e);
-		console.log(data);
-	}; */
-
     const onSubmit = data => {
         setShowMsg(true);
-        //setMsg("fernandito")
-
         if (data.name == "") msg2 = "Please enter product name";
         if (data.description == "")
             msg2 = "Please enter description of product";
@@ -160,7 +121,6 @@ export default function ProductForm(props) {
             console.log("NO ERROR MESSAGE");
             setShowMsg(false);
             let formData = new FormData();
-            console.log("XXXXXXXXXXXXXXXXXXX");
             let details = JSON.stringify(data);
             formData.append("data", details);
             if (props.dat.image && props.dat.image.name)
@@ -170,16 +130,11 @@ export default function ProductForm(props) {
             const result = axios
                 .post(urlApi + "/api/saveProduct", formData)
                 .then(response => {
-                    console.log("555555555555555555");
-                    console.log(response.data);
-                    console.log("666666666666666666");
-                    //if (mounted) {
-                    if (response.data == "success") {
+                   if (response.data == "success") {
                         setShowMsg(true);
                         setMsg("Product saved");
                         props.showProducts(true);
                     }
-                    //}
                 })
                 .catch(error => {});
             return (mounted = false);
