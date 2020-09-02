@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>AVATAR</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="robots" content="all,follow">
+        <!-- Bootstrap CSS-->
+        <link rel="stylesheet" href="public/frontend/css/bootstrap.css">
+        <link rel="stylesheet" href="public/frontend/css/style.css">
+        <link rel="stylesheet" href="public/frontend/css/fancybox.css">
+        
+        <link rel="stylesheet" href="public/frontend/css/font-awesome.css">
+
+        <link rel="stylesheet" href="{{ asset('backend/fonts/web-icons/web-icons.min599c.css?v4.0.2') }}">
+        <link rel="stylesheet" href="{{ asset('backend/vendor/toastr/toastr.min599c.css?v4.0.2') }}">
+      </head>
+    <body>
+<div class="container-fluid p-0 home-content" style="min-height: 400px;">
+   
+    <?php  //echo asset('frontend/css/bootstrap.css'); die();
+    ?>
+    <div class="indexSponsor row">
+        <div class="col-md-1 col-3">  <a href="http://www.3m.com.do"><img class="img-fluid mx-auto" src="{{ asset('public/images/companylogos/3m.jpg') }}"></a></div>
+        <div class="col-md-1 col-3"> <a href="https://cnd.com.do/"><img class="img-fluid mx-auto" src="{{ asset('public/images/companylogos/7up.png') }}"></a></div>
+        <div class="col-md-1 col-3"> <a href="http://wwww.apap.com.do"><img class="img-fluid mx-auto" src="{{ asset('public/images/companylogos/apap.jpg') }}"></a></div>
+        <div class="col-md-1 col-3"> <a href="http://www.popularenlinea.com"><img class="img-fluid mx-auto" src="{{ asset('public/images/companylogos/BancoPopular.jpg') }}"></a></div>
+        <div class="col-md-1 col-3"> <a href="http://www.3m.com.do"><img class="img-fluid mx-auto" src="{{ asset('public/images/companylogos/MMujer-02.png') }}"></a></div>
+        <div class="col-md-1 col-3"> <a href="https://www.banreservas.com"><img class="img-fluid mx-auto" src="{{ asset('public/images/companylogos/banreservas.jpg') }}"></a></div>
+        <div class="col-md-1 col-3"> <a href="http://www.3m.com.do"><img class="img-fluid mx-auto" src="{{ asset('public/images/companylogos/cnd.jpg') }}"></a></div>
+        <div class="col-md-1 col-3"> <a href="http://www.claro.com.do"><img class="img-fluid mx-auto" src="{{ asset('public/images/companylogos/claro.jpg') }}"></a></div>
+        <div class="col-md-1 col-3"> <a href="http://www.3m.com.do"><img class="img-fluid mx-auto" src="{{ asset('public/images/companylogos/IKEA.png') }}"></a></div>
+        <div class="col-md-1 col-3"> <a href="https://mercasid.com.do/"><img class="img-fluid mx-auto" src="{{ asset('public/images/companylogos/mercasid.png') }}"></a></div>
+        <div class="col-md-1 col-3"> <a href="http://wwm.altice.com.do"><img class="img-fluid mx-auto" src="{{ asset('public/images/companylogos/altice.jpg') }}"></a></div>
+        <div class="col-md-1 col-3"> <a href="http://www.bhdleon.com.do"><img class="img-fluid mx-auto" src="{{ asset('public/images/companylogos/bhd.png') }}"></a></div>
+     </div>
+     
+    <div class="row redTitle">
+        <div class="col-md-12" style="text-align:center; font-size:24px"> FROM SRC SRC SRC Red de Ciudadanos Contra La Violencia de Género </div>
+    </div>   
+    <div id="index"></div>
+    
+</div>
+      <div id="logout" style="display:none">
+       @if($logout)
+        {{$logout}}
+    @endif  
+    </div>
+     <div id="footer"></div>
+    
+        
+
+    <script src="main.js"></script></body>
+    <script type="module" src="{{ asset('js/app.js')}}" ></script>
+    <script src="{{ asset('frontend/js/popper.min.js')}}"></script>
+    <script src="{{ asset('frontend/js/jquery-3.3.1.min.js') }}"></script>
+    <script src="{{ asset('frontend/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('frontend/js/fancybox.min.js') }}"></script>
+    <script src="{{ asset('frontend/js/modernizr.js') }}"></script>
+    <script src="{{ asset('frontend/js/jquery.validate.js') }}"></script>
+    
+    
+    <!-- Toastr -->
+    <script src="{{ asset('backend/vendor/toastr/toastr.min599c.js?v4.0.2') }}"></script>
+   
+    <script>
+    $(window).on("load", function (e){
+        // Animate loader off screen
+        $(".se-pre-con").fadeOut("slow");
+    });
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function()
+        {   
+            
+            $('.mobile-nav').click(function()
+            {
+                $('#sidebar').toggleClass('active');
+                
+                $(this).toggleClass('fa-bars');
+                $(this).toggleClass('fa-times');
+            });
+        });
+    </script>
+   
+</html>

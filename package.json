@@ -1,21 +1,92 @@
 {
-    "private": true,
-    "scripts": {
-        "dev": "npm run development",
-        "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
-        "watch": "npm run development -- --watch",
-        "watch-poll": "npm run watch -- --watch-poll",
-        "hot": "cross-env NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --disable-host-check --config=node_modules/laravel-mix/setup/webpack.config.js",
-        "prod": "npm run production",
-        "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
-    },
-    "devDependencies": {
-        "axios": "^0.19",
-        "cross-env": "^7.0",
-        "laravel-mix": "^5.0.1",
-        "lodash": "^4.17.13",
-        "resolve-url-loader": "^3.1.0",
-        "sass": "^1.15.2",
-        "sass-loader": "^8.0.0"
-    }
+	"private": true,
+	"scripts": {
+		"dev": "npm run development",
+		"development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+		"watch": "npm run development -- --watch",
+		"watch-poll": "npm run watch -- --watch-poll",
+		"hot": "cross-env NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
+		"prod": "npm run production",
+		"production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+		"build": "webpack --mode development",
+		"build-min": "webpack resources/js/components/index.js --output dist/bundle.js --mode development -p",
+		"start-dev": "webpack-dev-server"
+	},
+	"devDependencies": {
+		"@babel/core": "^7.10.2",
+		"@babel/preset-env": "^7.10.2",
+		"@babel/preset-react": "^7.0.0",
+		"axios": "^0.19.0",
+		"babel-loader": "^8.1.0",
+		"bootstrap": "^4.4.1",
+		"cross-env": "^5.1",
+		"css-loader": "^3.6.0",
+		"file-loader": "^6.0.0",
+		"html": "^1.0.0",
+		"html-webpack-plugin": "^4.3.0",
+		"http-proxy-middleware": "^1.0.5",
+		"jquery": "^3.4.1",
+		"laravel-mix": "^4.1.2",
+		"loader": "^2.1.1",
+		"lodash": ">=4.17.13",
+		"mini-css-extract-plugin": "^0.9.0",
+		"node-sass": "^4.14.1",
+		"popper.js": "^1.15.0",
+		"react": "^16.12.0",
+		"react-dom": "^16.12.0",
+		"resolve-url-loader": "^2.3.1",
+		"sass": "^1.22.10",
+		"sass-loader": "^7.3.1",
+		"style-loader": "^1.2.1",
+		"webpack": "^4.43.0",
+		"webpack-cli": "^3.3.11"
+	},
+	"dependencies": {
+		"@ckeditor/ckeditor5-adapter-ckfinder": "^17.0.0",
+		"@ckeditor/ckeditor5-build-classic": "^17.0.0",
+		"@ckeditor/ckeditor5-media-embed": "^20.0.0",
+		"@ckeditor/ckeditor5-react": "^2.1.0",
+		"@ckeditor/ckeditor5-upload": "^17.0.0",
+		"@fortawesome/fontawesome-svg-core": "^1.2.17",
+		"@fortawesome/free-solid-svg-icons": "^5.8.1",
+		"@fortawesome/react-fontawesome": "^0.1.4",
+		"babel-core": "^6.26.3",
+		"babel-preset-env": "^1.7.0",
+		"history": "^2.1.2",
+		"npm-watch": "^0.6.0",
+		"react-awesome-gravatar": "^2.0.3",
+		"react-bootstrap": "^1.0.0-beta.16",
+		"react-bootstrap-table-next": "^3.3.3",
+		"react-ckeditor-component": "^1.1.0",
+		"react-datepicker": "^2.14.1",
+		"react-hook-form": "^4.7.1",
+		"react-hooks-lib": "^0.1.0",
+		"react-hooks-useform": "^0.1.73",
+		"react-html-parser": "^2.0.2",
+		"react-interval": "^2.1.1",
+		"react-js-pagination": "^3.0.2",
+		"react-number-format": "^4.4.1",
+		"react-router-dom": "^5.1.2",
+		"react-scripts": "^3.4.1",
+		"react-select": "^3.0.8"
+	},
+	"name": "CodeTestMaster",
+	"description": "<p align=\"center\"><img src=\"https://www.ulearnpro.com/img/logo_md.png\"><a href=\"https://packagist.org/packages/ulearnpro/ulearn\"><img src=\"https://poser.pugx.org/ulearnpro/ulearn/license.svg\" alt=\"License\"></a></p> <p align=\"center\">   <a href=\"https://ko-fi.com/G2G311PPB\"><img src=\"https://www.ko-fi.com/img/githubbutton_sm.svg\" alt=\"ko-fi\"></a> </p>",
+	"version": "1.0.0",
+	"homepage": "http://localhost/code-test-master",
+	"main": "index.js",
+	"directories": {
+		"doc": "docs",
+		"test": "tests"
+	},
+	"watch": {
+		"build": {
+			"patterns": [
+				"src"
+			],
+			"extensions": "js,jsx"
+		}
+	},
+	"author": "",
+	"license": "ISC"
 }

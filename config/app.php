@@ -1,5 +1,6 @@
 <?php
-
+if(env('APP_ENV') == 'local') $appDir = "http://www.localhost/code-test-master";		
+if(env('APP_ENV') == 'production') $appDir = "";
 return [
 
     /*
@@ -13,7 +14,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Laravel'),
+    'name' => env('APP_NAME', 'Code Test Master'),
 
     /*
     |--------------------------------------------------------------------------
@@ -26,8 +27,13 @@ return [
     |
     */
 
-    'env' => env('APP_ENV', 'production'),
-
+    'env' => env('APP_ENV', 'local'),
+    /*
+	Application directory to control display of images and path for pagination template for tables
+	*/
+    'appDir' => $appDir,
+    
+	/*
     /*
     |--------------------------------------------------------------------------
     | Application Debug Mode
@@ -39,7 +45,7 @@ return [
     |
     */
 
-    'debug' => (bool) env('APP_DEBUG', false),
+    'debug' => env('APP_DEBUG', false),
 
     /*
     |--------------------------------------------------------------------------
@@ -161,6 +167,7 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
+        
 
         /*
          * Package Service Providers...
@@ -174,6 +181,12 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        Laravel\Socialite\SocialiteServiceProvider::class,
+        Intervention\Image\ImageServiceProvider::class,
+        Ignited\LaravelOmnipay\LaravelOmnipayServiceProvider::class,
+        Chumper\Zipper\ZipperServiceProvider::class,
+        Barryvdh\DomPDF\ServiceProvider::class,
+        
 
     ],
 
@@ -207,7 +220,6 @@ return [
         'File' => Illuminate\Support\Facades\File::class,
         'Gate' => Illuminate\Support\Facades\Gate::class,
         'Hash' => Illuminate\Support\Facades\Hash::class,
-        'Http' => Illuminate\Support\Facades\Http::class,
         'Lang' => Illuminate\Support\Facades\Lang::class,
         'Log' => Illuminate\Support\Facades\Log::class,
         'Mail' => Illuminate\Support\Facades\Mail::class,
@@ -226,6 +238,11 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+        'Socialite' => Laravel\Socialite\Facades\Socialite::class,
+        'Image' => Intervention\Image\Facades\Image::class,
+        'Omnipay' => Ignited\LaravelOmnipay\Facades\OmnipayFacade::class,
+        'Zipper' => Chumper\Zipper\Zipper::class,
+        'PDF' => Barryvdh\DomPDF\Facade::class,
 
     ],
 
